@@ -16,7 +16,8 @@ import java.util.List;
 
 public class CityAdapter extends ArrayAdapter<City> {
 
-    TextView nameCity;
+    TextView nameCity,descripcion;
+    //ImageView weatherImage;
 
 
 
@@ -37,8 +38,11 @@ public class CityAdapter extends ArrayAdapter<City> {
         }
 
         nameCity = (TextView) convertView.findViewById(R.id.nameCity);
+        descripcion = (TextView) convertView.findViewById(R.id.description);
+        //weatherImage = (ImageView) convertView.findViewById(R.id.weatherImage);
 
         nameCity.setText(city.getName());
+        descripcion.setText(city.getDescription());
 
 
         // Retornem la View replena per a mostrarla

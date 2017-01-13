@@ -1,8 +1,10 @@
 package com.proyecto.openweather;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -12,6 +14,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -71,6 +74,17 @@ public class MainActivityFragment extends Fragment {
         );
 
         listWeather.setAdapter(adapter);
+        listWeather.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                City city = (City) adapterView.getItemAtPosition(i);
+
+                Intent intent = new Intent(getContext(), DetailActivity.class);
+                intent.putExtra("city", city);
+
+                startActivity(intent);
+            }
+        });
 
         return mainFragment;
     }
@@ -122,9 +136,87 @@ public class MainActivityFragment extends Fragment {
         @Override
         protected ArrayList<City> doInBackground(Void... voids) {
 
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+            String ciudad = preferences.getString("Ciudad", "");
+            String dias = preferences.getString("Dias Prediccion", "");
+
             LlamadaWeather llamadaWeather = new LlamadaWeather();
 
-            ArrayList<City> result = llamadaWeather.getCiudadesDefecto();
+            ArrayList<City> result = null;
+
+
+            if(dias.equals("")&&ciudad.equals("")){
+
+                result = llamadaWeather.getCiudadesDefecto();
+
+            }else if(dias.equals("1")){
+
+                result = llamadaWeather.getWeatherDays(ciudad,dias);
+
+            }else if(dias.equals("2")){
+
+                result = llamadaWeather.getWeatherDays(ciudad,dias);
+
+            }else if(dias.equals("3")){
+
+                result = llamadaWeather.getWeatherDays(ciudad,dias);
+
+            }else if(dias.equals("4")){
+
+                result = llamadaWeather.getWeatherDays(ciudad,dias);
+
+            }else if(dias.equals("5")){
+
+                result = llamadaWeather.getWeatherDays(ciudad,dias);
+
+            }else if(dias.equals("6")){
+
+                result = llamadaWeather.getWeatherDays(ciudad,dias);
+
+            }else if(dias.equals("7")){
+
+                result = llamadaWeather.getWeatherDays(ciudad,dias);
+
+            }else if(dias.equals("8")){
+
+                result = llamadaWeather.getWeatherDays(ciudad,dias);
+
+            }else if(dias.equals("9")){
+
+                result = llamadaWeather.getWeatherDays(ciudad,dias);
+
+            }else if(dias.equals("10")){
+
+                result = llamadaWeather.getWeatherDays(ciudad,dias);
+
+            }else if(dias.equals("11")){
+
+                result = llamadaWeather.getWeatherDays(ciudad,dias);
+
+            }else if(dias.equals("12")){
+
+                result = llamadaWeather.getWeatherDays(ciudad,dias);
+
+            }else if(dias.equals("13")){
+
+                result = llamadaWeather.getWeatherDays(ciudad,dias);
+
+            }else if(dias.equals("14")){
+
+                result = llamadaWeather.getWeatherDays(ciudad,dias);
+
+            }else if(dias.equals("15")){
+
+                result = llamadaWeather.getWeatherDays(ciudad,dias);
+
+            }else if(dias.equals("16")){
+
+                result = llamadaWeather.getWeatherDays(ciudad,dias);
+
+            }
+
+
+
 
             Log.d("DEBUUUUG",result.toString());
 

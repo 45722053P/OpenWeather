@@ -20,6 +20,9 @@ public class LlamadaWeather {
     private final String BASE_URL = "http://api.openweathermap.org/data/2.5";
     private final String APIKEY = "6ccb7be7c112de46b04c27a3f1dafda9";
     private final String lang = "es";
+    private final String units = "metric";
+
+
 
     ArrayList<City> getCiudadesDefecto() {
         Uri builtUri = Uri.parse(BASE_URL)
@@ -28,12 +31,32 @@ public class LlamadaWeather {
                 .appendQueryParameter("lat","41")
                 .appendQueryParameter("lon","2")
                 .appendQueryParameter("lang", lang)
+                .appendQueryParameter("units",units)
                 .appendQueryParameter("appid",APIKEY)
                 .build();
         String url = builtUri.toString();
 
         return llama(url);
     }
+
+    ArrayList<City>getWeatherDays(String ciudad,String dias){
+        Uri builtUri = Uri.parse(BASE_URL)
+                .buildUpon()
+                .appendPath("forecast")
+                .appendPath("daily")
+                .appendQueryParameter("q",ciudad)
+                .appendQueryParameter("lang", lang)
+                .appendQueryParameter("units",units)
+                .appendQueryParameter("cnt",dias)
+                .appendQueryParameter("appid",APIKEY)
+                .build();
+        String url = builtUri.toString();
+
+        return llama(url);
+
+    }
+
+
 
     @Nullable
     private ArrayList<City> llama(String url) {
@@ -54,40 +77,42 @@ public class LlamadaWeather {
         try {
 
             JSONObject data = new JSONObject(jsonResponse);
-
-            Log.d("DEBUUG",data.toString());
-
             JSONArray jsonCities = data.getJSONArray("list");
-
-            Log.d("CIUdAAAA",jsonCities.toString());
-
+            
             for (int i = 0; i < jsonCities.length(); i++) {
 
                 JSONObject jsonCity = jsonCities.getJSONObject(i);
 
                 City city = new City();
+
+
                 city.setId(jsonCity.getInt("id"));
                 city.setName(jsonCity.getString("name"));
 
-                if(jsonCities.get(i).equals("coord")){
+                if(jsonCity.has("coord")){
+                    city.setCoordenadas(jsonCity.getString("coord"));
 
-                    city.setLon(jsonCity.getDouble("lon"));
-                    city.setLat(jsonCity.getDouble("lat"));
                 }
 
-                if(jsonCities.get(i).equals("main")) {
+                if(jsonCity.has("main")) {
 
-                    city.setTemp(jsonCity.getDouble("temp"));
-                    city.setPressure(jsonCity.getInt("pressure"));
-                    city.setHumidity(jsonCity.getInt("humidity"));
-                    city.setTempMin(jsonCity.getDouble("temp_min"));
-                    city.setTempMax(jsonCity.getDouble("temp_max"));
+                    for (int j = 0; j < jsonCity.length(); j++) {
+                        if(jsonCity.equals("main")) {
+                            city.setTemp(jsonCity.getString("temp"));
+                            city.setPressure(jsonCity.getString("pressure"));
+                            city.setHumidity(jsonCity.getString("humidity"));
+                            city.setTempMin(jsonCity.getString("temp_min"));
+                            city.setTempMax(jsonCity.getString("temp_max"));
+                        }
+                    }
                 }
+
 
                 if(jsonCities.get(i).equals("wind")){
 
-                    city.setSpeed(jsonCity.getDouble("speed"));
+                    city.setSpeed(jsonCity.getString("speed"));
                 }
+
 
                 if(jsonCities.get(i).equals("weather")){
 
@@ -95,6 +120,8 @@ public class LlamadaWeather {
                     city.setIcon(jsonCity.getString("icon"));
                 }
 
+
+                Log.d("CITYYY",city.toString());
                 cities.add(city);
             }
         } catch (JSONException e) {
