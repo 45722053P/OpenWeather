@@ -10,13 +10,14 @@ public class City implements Serializable{
 
     Integer id;
     String name;
-    String coordenadas;
-    String temp;
-    String pressure;
-    String humidity;
-    String tempMin;
-    String tempMax;
-    String speed;
+    Double lon;
+    Double lat;
+    Double temp;
+    Integer pressure;
+    Integer humidity;
+    Double tempMin;
+    Double tempMax;
+    Double speed;
     String description;
     String icon;
 
@@ -40,53 +41,67 @@ public class City implements Serializable{
         this.name = name;
     }
 
+    public Double getLon() {
+        return lon;
+    }
 
+    public void setLon(Double lon) {
+        this.lon = lon;
+    }
 
-    public String getTemp() {
+    public Double getLat() {
+        return lat;
+    }
+
+    public void setLat(Double lat) {
+        this.lat = lat;
+    }
+
+    public Double getTemp() {
         return temp;
     }
 
-    public void setTemp(String temp) {
+    public void setTemp(Double temp) {
         this.temp = temp;
     }
 
-    public String getPressure() {
+    public Integer getPressure() {
         return pressure;
     }
 
-    public void setPressure(String pressure) {
+    public void setPressure(Integer pressure) {
         this.pressure = pressure;
     }
 
-    public String getHumidity() {
+    public Integer getHumidity() {
         return humidity;
     }
 
-    public void setHumidity(String humidity) {
+    public void setHumidity(Integer humidity) {
         this.humidity = humidity;
     }
 
-    public String getTempMin() {
+    public Double getTempMin() {
         return tempMin;
     }
 
-    public void setTempMin(String tempMin) {
+    public void setTempMin(Double tempMin) {
         this.tempMin = tempMin;
     }
 
-    public String getTempMax() {
+    public Double getTempMax() {
         return tempMax;
     }
 
-    public void setTempMax(String tempMax) {
+    public void setTempMax(Double tempMax) {
         this.tempMax = tempMax;
     }
 
-    public String getSpeed() {
+    public Double getSpeed() {
         return speed;
     }
 
-    public void setSpeed(String speed) {
+    public void setSpeed(Double speed) {
         this.speed = speed;
     }
 
@@ -106,26 +121,19 @@ public class City implements Serializable{
         this.icon = icon;
     }
 
-    public String getCoordenadas() {
-        return coordenadas;
-    }
-
-    public void setCoordenadas(String coordenadas) {
-        this.coordenadas = coordenadas;
-    }
-
     @Override
     public String toString() {
         return "City{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", coordenadas='" + coordenadas + '\'' +
-                ", temp='" + temp + '\'' +
-                ", pressure='" + pressure + '\'' +
-                ", humidity='" + humidity + '\'' +
-                ", tempMin='" + tempMin + '\'' +
-                ", tempMax='" + tempMax + '\'' +
-                ", speed='" + speed + '\'' +
+                ", lon=" + lon +
+                ", lat=" + lat +
+                ", temp=" + temp +
+                ", pressure=" + pressure +
+                ", humidity=" + humidity +
+                ", tempMin=" + tempMin +
+                ", tempMax=" + tempMax +
+                ", speed=" + speed +
                 ", description='" + description + '\'' +
                 ", icon='" + icon + '\'' +
                 '}';

@@ -78,7 +78,7 @@ public class LlamadaWeather {
 
             JSONObject data = new JSONObject(jsonResponse);
             JSONArray jsonCities = data.getJSONArray("list");
-            
+
             for (int i = 0; i < jsonCities.length(); i++) {
 
                 JSONObject jsonCity = jsonCities.getJSONObject(i);
@@ -90,34 +90,35 @@ public class LlamadaWeather {
                 city.setName(jsonCity.getString("name"));
 
                 if(jsonCity.has("coord")){
-                    city.setCoordenadas(jsonCity.getString("coord"));
-
+                            city.setLon(jsonCity.getJSONObject("coord").getDouble("lon"));
+                            city.setLat(jsonCity.getJSONObject("coord").getDouble("lat"));
                 }
+
 
                 if(jsonCity.has("main")) {
 
-                    for (int j = 0; j < jsonCity.length(); j++) {
-                        if(jsonCity.equals("main")) {
-                            city.setTemp(jsonCity.getString("temp"));
-                            city.setPressure(jsonCity.getString("pressure"));
-                            city.setHumidity(jsonCity.getString("humidity"));
-                            city.setTempMin(jsonCity.getString("temp_min"));
-                            city.setTempMax(jsonCity.getString("temp_max"));
-                        }
-                    }
+                            city.setTemp(jsonCity.getJSONObject("main").getDouble("temp"));
+                            city.setPressure(jsonCity.getJSONObject("main").getInt("pressure"));
+                            city.setHumidity(jsonCity.getJSONObject("main").getInt("humidity"));
+                            city.setTempMin(jsonCity.getJSONObject("main").getDouble("temp_min"));
+                            city.setTempMax(jsonCity.getJSONObject("main").getDouble("temp_max"));
+
+                }
+
+                if(jsonCity.has("wind")){
+
+
+                            city.setSpeed(jsonCity.getJSONObject("wind").getDouble("speed"));
+
                 }
 
 
-                if(jsonCities.get(i).equals("wind")){
 
-                    city.setSpeed(jsonCity.getString("speed"));
-                }
+                if(jsonCity.has("weather")){
 
+                        city.setDescription(jsonCity.getJSONObject("weather").getString("description"));
+                        city.setIcon(jsonCity.getJSONObject("weather").getString("icon"));
 
-                if(jsonCities.get(i).equals("weather")){
-
-                    city.setDescription(jsonCity.getString("description"));
-                    city.setIcon(jsonCity.getString("icon"));
                 }
 
 
