@@ -115,10 +115,12 @@ public class LlamadaWeather {
 
 
                 if(jsonCity.has("weather")){
+                    for (int j = 0; j < jsonCity.length(); j++) {
 
-                        city.setDescription(jsonCity.getJSONObject("weather").getString("description"));
+                        //city.setDescription(jsonCity.getJSONArray("weather").getString("description"));
                         city.setIcon(jsonCity.getJSONObject("weather").getString("icon"));
 
+                    }
                 }
 
 
