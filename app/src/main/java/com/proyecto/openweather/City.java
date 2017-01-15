@@ -13,6 +13,7 @@ public class City implements Serializable{
     Double lon;
     Double lat;
     Double temp;
+    String country;
     Integer pressure;
     Integer humidity;
     Double tempday;
@@ -157,6 +158,14 @@ public class City implements Serializable{
         this.tempmorn = tempmorn;
     }
 
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
     @Override
     public String toString() {
         return "City{" +
@@ -165,6 +174,7 @@ public class City implements Serializable{
                 ", lon=" + lon +
                 ", lat=" + lat +
                 ", temp=" + temp +
+                ", country='" + country + '\'' +
                 ", pressure=" + pressure +
                 ", humidity=" + humidity +
                 ", tempday=" + tempday +

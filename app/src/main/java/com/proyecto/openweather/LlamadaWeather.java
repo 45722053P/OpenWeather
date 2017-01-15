@@ -150,47 +150,51 @@ public class LlamadaWeather {
 
             JSONObject data = new JSONObject(jsonResponse);
 
+            JSONArray jsondays = data.getJSONArray("list");
 
             for (int i = 0; i < data.length(); i++) {
 
-
                 City city = new City();
 
-                Log.d("DATAAAA",data.toString());
-
                 if(data.has("city")) {
-                city.setId(data.getJSONObject("city").getInt("geoname_id"));
+                city.setId(data.getJSONObject("city").getInt("id"));
                 city.setName(data.getJSONObject("city").getString("name"));
                 }
-                if(data.has("city")){
-                    city.setLon(data.getJSONObject("city").getDouble("lon"));
-                    city.setLat(data.getJSONObject("city").getDouble("lat"));
+                Log.d("CIUDAAAD1",city.toString());
+                if(data.has("coord")){
+                    city.setLon(data.getJSONObject("coord").getDouble("lon"));
+                    city.setLat(data.getJSONObject("coord").getDouble("lat"));
+                    city.setCountry(data.getJSONObject("coord").getString("country"));
                 }
-                if(data.has("list")){
-                    if(data.has("temp")){
-                        city.setTempday(data.getJSONObject("temp").getDouble("day"));
-                        city.setTempMin(data.getJSONObject("temp").getDouble("min"));
-                        city.setTempMax(data.getJSONObject("temp").getDouble("max"));
-                        city.setTempnigth(data.getJSONObject("temp").getDouble("night"));
-                        city.setTempeve(data.getJSONObject("temp").getDouble("eve"));
-                        city.setTempmorn(data.getJSONObject("temp").getDouble("morn"));
-                        Log.d("TEEEEMPPP",city.toString());
-                        Log.d("TEEEEEEMP",data.toString());
+                Log.d("CIUDAAAD2",city.toString());
+                Log.d("CIUDAADA2",data.toString());
+
+
+
+                for (int j = 0; j < jsondays.length(); j++) {
+                    JSONObject jsonday = jsondays.getJSONObject(i);
+                    if (jsonday.has("temp")) {
+                            city.setTempday(jsonday.getJSONObject("temp").getDouble("day"));
+                            city.setTempMin(jsonday.getJSONObject("temp").getDouble("min"));
+                            city.setTempMax(jsonday.getJSONObject("temp").getDouble("max"));
+                            city.setTempnigth(jsonday.getJSONObject("temp").getDouble("night"));
+                            city.setTempeve(jsonday.getJSONObject("temp").getDouble("eve"));
+                            city.setTempmorn(jsonday.getJSONObject("temp").getDouble("morn"));
+
+                    }
+
+                    city.setPressure(jsonday.getInt("pressure"));
+                    city.setHumidity(jsonday.getInt("humidity"));
+                    city.setSpeed(jsonday.getDouble("speed"));
+
+
+                    if(jsonday.has("weather")) {
+                        city.setDescription(jsonday.getJSONArray("weather").getJSONObject(0).getString("description"));
+                        city.setIcon((jsonday.getJSONArray("weather").getJSONObject(0).getString("icon")));
                     }
                 }
 
-                //city.setPressure(data.getInt("pressure"));
-                //city.setHumidity(data.getInt("humidity"));
-                //city.setSpeed(data.getDouble("speed"));
-
-                if(data.has("weather")) {
-                    city.setDescription(data.getJSONObject("weather").getString("description"));
-                    city.setIcon((data.getJSONObject("weather").getString("icon")));
-                }
-
-
-
-                Log.d("CITYYY",city.toString());
+                Log.d("CIUUDDDAAAD FINAAAL",city.toString());
                 cities.add(city);
             }
         } catch (JSONException e) {
