@@ -29,14 +29,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tempmaxdetails"
-        android:layout_marginStart="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="16dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="16dp"
-        app:layout_constraintHorizontal_bias="0.21"
-        tools:layout_editor_absoluteY="216dp" />
+        android:layout_marginStart="8dp"
+        app:layout_constraintLeft_toRightOf="@+id/totalTemperatura"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/tempmindetails"
+        app:layout_constraintHorizontal_bias="0.1" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -44,27 +45,22 @@
         android:layout_marginEnd="16dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="16dp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="16dp"
-        app:layout_constraintHorizontal_bias="0.42"
         android:text="tempMin"
         android:id="@+id/tempmindetails"
-        tools:layout_editor_absoluteY="266dp" />
+        android:layout_marginStart="8dp"
+        app:layout_constraintLeft_toRightOf="@+id/totalTemperatura"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/tempsnigthdetails"
+        app:layout_constraintHorizontal_bias="0.1" />
 
     <TextView
         android:text="tempMañana"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tempmorndetails"
-        android:layout_marginStart="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginRight="16dp"
-        app:layout_constraintHorizontal_bias="0.69"
-        tools:layout_editor_absoluteY="359dp" />
+        tools:layout_editor_absoluteY="233dp"
+        tools:layout_editor_absoluteX="143dp" />
 
     <TextView
         android:text="tempEve"
@@ -74,11 +70,12 @@
         android:layout_marginEnd="16dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="16dp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="16dp"
-        app:layout_constraintHorizontal_bias="0.18"
-        tools:layout_editor_absoluteY="241dp" />
+        android:layout_marginStart="8dp"
+        app:layout_constraintLeft_toRightOf="@+id/totalTemperatura"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/tempmorndetails"
+        android:layout_marginTop="8dp"
+        app:layout_constraintHorizontal_bias="0.1" />
 
     <TextView
         android:text="tempNoche"
@@ -88,11 +85,12 @@
         android:layout_marginEnd="16dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="16dp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="16dp"
-        app:layout_constraintHorizontal_bias="0.84"
-        tools:layout_editor_absoluteY="275dp" />
+        android:layout_marginStart="8dp"
+        app:layout_constraintLeft_toRightOf="@+id/totalTemperatura"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/tempevedetails"
+        app:layout_constraintHorizontal_bias="0.1" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -109,23 +107,36 @@
         android:text="descripcion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteY="199dp"
         android:id="@+id/descripciondetails"
-        tools:layout_editor_absoluteX="156dp" />
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.1" />
 
     <TextView
         android:text="velo Viento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteY="308dp"
         android:id="@+id/speeddetails"
-        tools:layout_editor_absoluteX="157dp" />
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintTop_toTopOf="@+id/tempmaxdetails"
+        android:layout_marginTop="40dp" />
 
     <TextView
         android:text="humedad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteY="242dp"
         android:id="@+id/humedaddetails"
         android:layout_marginStart="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -133,15 +144,24 @@
         android:layout_marginEnd="16dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="16dp"
-        app:layout_constraintHorizontal_bias="0.72" />
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/speeddetails"
+        app:layout_constraintHorizontal_bias="0.1" />
 
     <TextView
         android:text="Presion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteY="202dp"
         android:id="@+id/presiondetails"
-        tools:layout_editor_absoluteX="263dp" />
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/humedaddetails"
+        app:layout_constraintHorizontal_bias="0.1" />
 
     <TextView
         android:text="ID"
@@ -166,11 +186,11 @@
         android:layout_marginEnd="16dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/namecityDetails"
         android:layout_marginStart="8dp"
         app:layout_constraintLeft_toRightOf="@+id/imageView"
         android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/namecityDetails"
         app:layout_constraintHorizontal_bias="0.1" />
 
     <TextView
@@ -181,46 +201,56 @@
         android:layout_marginEnd="16dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/latdetails"
         android:layout_marginStart="8dp"
         app:layout_constraintLeft_toRightOf="@+id/imageView"
         android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/latdetails"
         app:layout_constraintHorizontal_bias="0.1" />
 
     <TextView
         android:text="PAIS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteY="384dp"
         android:id="@+id/paisdetails"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginRight="16dp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="16dp"
-        app:layout_constraintHorizontal_bias="0.2" />
+        tools:layout_editor_absoluteY="125dp"
+        tools:layout_editor_absoluteX="167dp" />
 
     <TextView
         android:text="temp dia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteY="334dp"
         android:id="@+id/tempday"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintLeft_toRightOf="@+id/totalTemperatura"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/totalTemperatura"
+        app:layout_constraintHorizontal_bias="0.1" />
+
+    <ImageView
+        android:layout_width="140dp"
+        android:layout_height="142dp"
+        app:srcCompat="@drawable/icono"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="0dp"
+        android:id="@+id/imageView" />
+
+    <TextView
+        android:text="temperatura"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/totalTemperatura"
         android:layout_marginEnd="16dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="16dp"
         android:layout_marginStart="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="16dp"
-        app:layout_constraintHorizontal_bias="0.14" />
-
-    <ImageView
-        android:layout_width="135dp"
-        android:layout_height="134dp"
-        app:srcCompat="@drawable/icono"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="0dp"
-        android:id="@+id/imageView" />
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/descripciondetails"
+        app:layout_constraintHorizontal_bias="0.1" />
 </android.support.constraint.ConstraintLayout>
