@@ -52,7 +52,7 @@ public class LlamadaWeather {
                 .build();
         String url = builtUri.toString();
 
-        return llama(url);
+        return llama2(url);
 
     }
 
@@ -62,7 +62,7 @@ public class LlamadaWeather {
     private ArrayList<City> llama(String url) {
         try {
             String JsonResponse = HttpUtils.get(url);
-            return processJson(JsonResponse);
+            return processJsonDefecto(JsonResponse);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -70,7 +70,7 @@ public class LlamadaWeather {
     }
 
 
-    private ArrayList<City> processJson(String jsonResponse) {
+    private ArrayList<City> processJsonDefecto(String jsonResponse) {
 
         ArrayList<City> cities = new ArrayList<>();
 
@@ -130,5 +130,73 @@ public class LlamadaWeather {
         return cities;
     }
 
+    @Nullable
+    private ArrayList<City> llama2(String url) {
+        try {
+            String JsonResponse = HttpUtils.get(url);
+            return processJsonciudad(JsonResponse);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
+
+    private ArrayList<City> processJsonciudad(String jsonResponse) {
+
+        ArrayList<City> cities = new ArrayList<>();
+
+        try {
+
+            JSONObject data = new JSONObject(jsonResponse);
+
+
+            for (int i = 0; i < data.length(); i++) {
+
+
+                City city = new City();
+
+                Log.d("DATAAAA",data.toString());
+
+                if(data.has("city")) {
+                city.setId(data.getJSONObject("city").getInt("geoname_id"));
+                city.setName(data.getJSONObject("city").getString("name"));
+                }
+                if(data.has("city")){
+                    city.setLon(data.getJSONObject("city").getDouble("lon"));
+                    city.setLat(data.getJSONObject("city").getDouble("lat"));
+                }
+                if(data.has("list")){
+                    if(data.has("temp")){
+                        city.setTempday(data.getJSONObject("temp").getDouble("day"));
+                        city.setTempMin(data.getJSONObject("temp").getDouble("min"));
+                        city.setTempMax(data.getJSONObject("temp").getDouble("max"));
+                        city.setTempnigth(data.getJSONObject("temp").getDouble("night"));
+                        city.setTempeve(data.getJSONObject("temp").getDouble("eve"));
+                        city.setTempmorn(data.getJSONObject("temp").getDouble("morn"));
+                        Log.d("TEEEEMPPP",city.toString());
+                        Log.d("TEEEEEEMP",data.toString());
+                    }
+                }
+
+                //city.setPressure(data.getInt("pressure"));
+                //city.setHumidity(data.getInt("humidity"));
+                //city.setSpeed(data.getDouble("speed"));
+
+                if(data.has("weather")) {
+                    city.setDescription(data.getJSONObject("weather").getString("description"));
+                    city.setIcon((data.getJSONObject("weather").getString("icon")));
+                }
+
+
+
+                Log.d("CITYYY",city.toString());
+                cities.add(city);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return cities;
+    }
 }

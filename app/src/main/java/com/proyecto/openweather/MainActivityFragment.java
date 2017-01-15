@@ -138,7 +138,7 @@ public class MainActivityFragment extends Fragment {
 
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
             String ciudad = preferences.getString("Ciudad", "");
-            String dias = preferences.getString("Dias Prediccion", "1");
+            String dias = preferences.getString("Dias Prediccion", "");
 
             LlamadaWeather llamadaWeather = new LlamadaWeather();
 

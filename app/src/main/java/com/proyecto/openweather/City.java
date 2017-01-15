@@ -15,6 +15,10 @@ public class City implements Serializable{
     Double temp;
     Integer pressure;
     Integer humidity;
+    Double tempday;
+    Double tempnigth;
+    Double tempeve;
+    Double tempmorn;
     Double tempMin;
     Double tempMax;
     Double speed;
@@ -121,6 +125,38 @@ public class City implements Serializable{
         this.icon = icon;
     }
 
+    public Double getTempday() {
+        return tempday;
+    }
+
+    public void setTempday(Double tempday) {
+        this.tempday = tempday;
+    }
+
+    public Double getTempnigth() {
+        return tempnigth;
+    }
+
+    public void setTempnigth(Double tempnigth) {
+        this.tempnigth = tempnigth;
+    }
+
+    public Double getTempeve() {
+        return tempeve;
+    }
+
+    public void setTempeve(Double tempeve) {
+        this.tempeve = tempeve;
+    }
+
+    public Double getTempmorn() {
+        return tempmorn;
+    }
+
+    public void setTempmorn(Double tempmorn) {
+        this.tempmorn = tempmorn;
+    }
+
     @Override
     public String toString() {
         return "City{" +
@@ -131,6 +167,10 @@ public class City implements Serializable{
                 ", temp=" + temp +
                 ", pressure=" + pressure +
                 ", humidity=" + humidity +
+                ", tempday=" + tempday +
+                ", tempnigth=" + tempnigth +
+                ", tempeve=" + tempeve +
+                ", tempmorn=" + tempmorn +
                 ", tempMin=" + tempMin +
                 ", tempMax=" + tempMax +
                 ", speed=" + speed +

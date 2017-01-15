@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -17,7 +18,7 @@ import java.util.List;
 public class CityAdapter extends ArrayAdapter<City> {
 
     TextView nameCity,descripcion;
-    //ImageView weatherImage;
+    ImageView weatherImage;
 
 
 
@@ -38,12 +39,12 @@ public class CityAdapter extends ArrayAdapter<City> {
         }
 
         nameCity = (TextView) convertView.findViewById(R.id.nameCity);
-        descripcion = (TextView) convertView.findViewById(R.id.description);
-        //weatherImage = (ImageView) convertView.findViewById(R.id.weatherImage);
+        descripcion = (TextView) convertView.findViewById(R.id.descripcion);
+        weatherImage = (ImageView) convertView.findViewById(R.id.weatherImage);
 
-        nameCity.setText(city.getName());
-        descripcion.setText(city.getDescription());
-
+        nameCity.setText("Ciudad: " + city.getName());
+        descripcion.setText("Cielo: " + city.getDescription());
+        //Glide.with(getContext()).load(city.getIcon()).into(weatherImage);
 
         // Retornem la View replena per a mostrarla
         return convertView;
