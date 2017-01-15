@@ -30,7 +30,7 @@ public class DetailActivityFragment extends Fragment {
         Intent i = getActivity().getIntent();
 
         if (i != null) {
-            City ciudad = (City) i.getSerializableExtra("movie");
+            City ciudad = (City) i.getSerializableExtra("city");
 
             if (ciudad != null) {
                 updateUi(ciudad);

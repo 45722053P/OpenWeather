@@ -158,14 +158,16 @@ public class LlamadaWeather {
 
                 if(data.has("city")) {
                 city.setId(data.getJSONObject("city").getInt("geoname_id"));
-                city.setName(data.getJSONObject("city").getString("name"));
+                    city.setId(data.getJSONObject("city").getInt("id"));
+
+                    city.setName(data.getJSONObject("city").getString("name"));
 //                    if(data.has("coord")){
                 city.setLon(data.getJSONObject("city").getDouble("lon"));
                 city.setLat(data.getJSONObject("city").getDouble("lat"));
                 city.setCountry(data.getJSONObject("city").getString("country"));
                     //}
                 }
-             
+
                 for (int j = 0; j < jsondays.length(); j++) {
                     JSONObject jsonday = jsondays.getJSONObject(i);
                     if (jsonday.has("temp")) {
