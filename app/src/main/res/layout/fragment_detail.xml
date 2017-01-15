@@ -20,7 +20,7 @@
         app:layout_constraintTop_toBottomOf="@+id/idDetails"
         android:layout_marginTop="8dp"
         android:layout_marginStart="8dp"
-        app:layout_constraintLeft_toRightOf="@+id/imageView"
+        app:layout_constraintLeft_toRightOf="@+id/iconoday"
         android:layout_marginLeft="8dp"
         app:layout_constraintHorizontal_bias="0.1" />
 
@@ -98,7 +98,7 @@
         tools:layout_editor_absoluteY="0dp"
         android:id="@+id/tituloDetails"
         android:text="NOMBRE CIUDAD"
-        app:layout_constraintLeft_toRightOf="@+id/imageView"
+        app:layout_constraintLeft_toRightOf="@+id/iconoday"
         android:layout_marginEnd="16dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="16dp" />
@@ -115,7 +115,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/iconoday"
         app:layout_constraintHorizontal_bias="0.1" />
 
     <TextView
@@ -172,7 +172,7 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="16dp"
         android:layout_marginStart="8dp"
-        app:layout_constraintLeft_toRightOf="@+id/imageView"
+        app:layout_constraintLeft_toRightOf="@+id/iconoday"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/tituloDetails"
@@ -187,7 +187,7 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="16dp"
         android:layout_marginStart="8dp"
-        app:layout_constraintLeft_toRightOf="@+id/imageView"
+        app:layout_constraintLeft_toRightOf="@+id/iconoday"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/namecityDetails"
@@ -202,7 +202,7 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="16dp"
         android:layout_marginStart="8dp"
-        app:layout_constraintLeft_toRightOf="@+id/imageView"
+        app:layout_constraintLeft_toRightOf="@+id/iconoday"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/latdetails"
@@ -220,7 +220,7 @@
         android:text="temp dia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tempday"
+        android:id="@+id/tempdaydetails"
         android:layout_marginEnd="16dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginRight="16dp"
@@ -237,7 +237,7 @@
         app:srcCompat="@drawable/icono"
         tools:layout_editor_absoluteY="0dp"
         tools:layout_editor_absoluteX="0dp"
-        android:id="@+id/imageView" />
+        android:id="@+id/iconoday" />
 
     <TextView
         android:text="temperatura"
