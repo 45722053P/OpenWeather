@@ -155,10 +155,10 @@ public class LlamadaWeather {
             for (int i = 0; i < data.length(); i++) {
 
                 City city = new City();
-
+//Nose porque la api a veces usa un json y a veces otro y unas tiene el geoname_id y otras solo id..... asi con varios, si no funcion es porque ha cogido el otro json.
                 if(data.has("city")) {
                 city.setId(data.getJSONObject("city").getInt("geoname_id"));
-                    city.setId(data.getJSONObject("city").getInt("id"));
+//                    city.setId(data.getJSONObject("city").getInt("id"));
 
                     city.setName(data.getJSONObject("city").getString("name"));
 //                    if(data.has("coord")){
