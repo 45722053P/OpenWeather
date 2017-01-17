@@ -21,7 +21,13 @@ public class DetailActivityFragment extends Fragment {
 
     public DetailActivityFragment() {
     }
-
+    // pagina para iconos. SOLEADO:         http://openweathermap.org/img/w/01d.png
+    //                      sol nubes:      http://openweathermap.org/img/w/02d.png
+    //                      nubes:          http://openweathermap.org/img/w/03d.png
+    //                      nubes1negra:    http://openweathermap.org/img/w/04d.png
+    //                      nubes lloviendo:http://openweathermap.org/img/w/09d.png
+    //                SOL CON NUBES LLUEVE: http://openweathermap.org/img/w/10d.png
+    //                  Lluvia con rayos:   http://openweathermap.org/img/w/11d.png
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -43,7 +49,6 @@ public class DetailActivityFragment extends Fragment {
         Log.d("CIUDAAAD", ciudad.toString());
 
         iconoday = (ImageView) viewDetails.findViewById(R.id.iconoday);
-        titulo = (TextView) viewDetails.findViewById(R.id.tituloDetails);
         id = (TextView) viewDetails.findViewById(R.id.idDetails);
         name = (TextView) viewDetails.findViewById(R.id.namecityDetails);
         lat = (TextView) viewDetails.findViewById(R.id.latdetails);
@@ -61,7 +66,6 @@ public class DetailActivityFragment extends Fragment {
         humedad = (TextView) viewDetails.findViewById(R.id.humedaddetails);
         presion = (TextView) viewDetails.findViewById(R.id.presiondetails);
 
-        titulo.setText(ciudad.getName());
         id.setText("ID CIUDAD: " + ciudad.getId());
         name.setText("NOMBRE: " + ciudad.getName());
         lat.setText("LATITUD: " + ciudad.getLat());

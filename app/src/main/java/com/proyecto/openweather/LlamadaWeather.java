@@ -97,7 +97,7 @@ public class LlamadaWeather {
 
                 if(jsonCity.has("main")) {
 
-                            city.setTemp(jsonCity.getJSONObject("main").getDouble("temp"));
+                            city.setTempday(jsonCity.getJSONObject("main").getDouble("temp"));
                             city.setPressure(jsonCity.getJSONObject("main").getInt("pressure"));
                             city.setHumidity(jsonCity.getJSONObject("main").getInt("humidity"));
                             city.setTempMin(jsonCity.getJSONObject("main").getDouble("temp_min"));
@@ -157,15 +157,21 @@ public class LlamadaWeather {
                 City city = new City();
 //Nose porque la api a veces usa un json y a veces otro y unas tiene el geoname_id y otras solo id..... asi con varios, si no funcion es porque ha cogido el otro json.
                 if(data.has("city")) {
-                city.setId(data.getJSONObject("city").getInt("geoname_id"));
-//                    city.setId(data.getJSONObject("city").getInt("id"));
+//                city.setId(data.getJSONObject("city").getInt("geoname_id"));
+                   city.setId(data.getJSONObject("city").getInt("id"));
 
                     city.setName(data.getJSONObject("city").getString("name"));
-//                    if(data.has("coord")){
-                city.setLon(data.getJSONObject("city").getDouble("lon"));
-                city.setLat(data.getJSONObject("city").getDouble("lat"));
-                city.setCountry(data.getJSONObject("city").getString("country"));
-                    //}
+                    Log.d("LOOOONN",city.toString());
+                    Log.d("LAATT",data.toString());
+                    if(data.has("coord")){
+                        Log.d("LOOOONN",city.toString());
+                        Log.d("LAATT",data.toString());
+                        city.setLon(data.getJSONArray("coord").getJSONObject(0).getDouble("lon"));
+                        city.setLat(data.getJSONObject("coord").getDouble("lat"));
+
+                    }
+                    city.setCountry(data.getJSONObject("city").getString("country"));
+
                 }
 
                 for (int j = 0; j < jsondays.length(); j++) {

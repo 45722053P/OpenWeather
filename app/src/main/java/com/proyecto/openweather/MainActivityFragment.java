@@ -174,54 +174,7 @@ public class MainActivityFragment extends Fragment {
 
                 result = llamadaWeather.getWeatherDays(ciudad,dias);
 
-            }else if(dias.equals("6")){
-
-                result = llamadaWeather.getWeatherDays(ciudad,dias);
-
-            }else if(dias.equals("7")){
-
-                result = llamadaWeather.getWeatherDays(ciudad,dias);
-
-            }else if(dias.equals("8")){
-
-                result = llamadaWeather.getWeatherDays(ciudad,dias);
-
-            }else if(dias.equals("9")){
-
-                result = llamadaWeather.getWeatherDays(ciudad,dias);
-
-            }else if(dias.equals("10")){
-
-                result = llamadaWeather.getWeatherDays(ciudad,dias);
-
-            }else if(dias.equals("11")){
-
-                result = llamadaWeather.getWeatherDays(ciudad,dias);
-
-            }else if(dias.equals("12")){
-
-                result = llamadaWeather.getWeatherDays(ciudad,dias);
-
-            }else if(dias.equals("13")){
-
-                result = llamadaWeather.getWeatherDays(ciudad,dias);
-
-            }else if(dias.equals("14")){
-
-                result = llamadaWeather.getWeatherDays(ciudad,dias);
-
-            }else if(dias.equals("15")){
-
-                result = llamadaWeather.getWeatherDays(ciudad,dias);
-
-            }else if(dias.equals("16")){
-
-                result = llamadaWeather.getWeatherDays(ciudad,dias);
-
             }
-
-
-
 
             Log.d("DEBUUUUG",result.toString());
 
