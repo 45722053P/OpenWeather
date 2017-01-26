@@ -232,11 +232,18 @@
 
     <ImageView
         app:srcCompat="@drawable/icono"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="7dp"
         android:id="@+id/iconoday"
         android:layout_width="150dp"
-        android:layout_height="135dp" />
+        android:layout_height="135dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintHorizontal_bias="0.0"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:text="temperatura"

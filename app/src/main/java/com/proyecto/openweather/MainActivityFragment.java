@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -173,6 +174,36 @@ public class MainActivityFragment extends Fragment {
             }else if(dias.equals("5")){
 
                 result = llamadaWeather.getWeatherDays(ciudad,dias);
+
+            }else if(dias.contains("6")){
+
+                result = llamadaWeather.getWeatherDays(ciudad,dias);
+                Snackbar.make(listWeather, "Dia de Prediccion incorrecto maximo 5 dias", Snackbar.LENGTH_LONG)
+                        .show();
+
+            }else if(dias.equals("7")){
+
+                result = llamadaWeather.getWeatherDays(ciudad,dias);
+                Snackbar.make(listWeather, "Dia de Prediccion incorrecto maximo 5 dias", Snackbar.LENGTH_LONG)
+                        .show();
+
+            }else if(dias.equals("8")){
+
+                result = llamadaWeather.getWeatherDays(ciudad,dias);
+                Snackbar.make(listWeather, "Dia de Prediccion incorrecto maximo 5 dias", Snackbar.LENGTH_LONG)
+                        .show();
+
+            }else if(dias.equals("9")){
+
+                result = llamadaWeather.getWeatherDays(ciudad,dias);
+                Snackbar.make(listWeather, "Dia de Prediccion incorrecto maximo 5 dias", Snackbar.LENGTH_LONG)
+                        .show();
+
+            }else if(dias.equals("10")){
+
+                result = llamadaWeather.getWeatherDays(ciudad,dias);
+                Snackbar.make(listWeather, "Dia de Prediccion incorrecto maximo 5 dias", Snackbar.LENGTH_LONG)
+                        .show();
 
             }
 
