@@ -23,7 +23,6 @@ public class CityAdapter extends ArrayAdapter<City> {
     ImageView weatherImage;
 
 
-
     public CityAdapter(Context context, int resource, List<City> objects) {
         super(context, resource, objects);
     }
@@ -34,6 +33,7 @@ public class CityAdapter extends ArrayAdapter<City> {
     //                      nubes lloviendo:http://openweathermap.org/img/w/09d.png
     //                SOL CON NUBES LLUEVE: http://openweathermap.org/img/w/10d.png
     //                  Lluvia con rayos:   http://openweathermap.org/img/w/11d.png
+    //                  nubes nieve         http://openweathermap.org/img/w/13d.png
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -66,12 +66,17 @@ public class CityAdapter extends ArrayAdapter<City> {
         }else if(city.getDescription().equals("nubes rotas")){
             city.setIcon("http://openweathermap.org/img/w/04d.png");
 
-        }else if(city.getDescription().equals("")){
+        }else if(city.getDescription().equals("lluvia ligera")){
+            city.setIcon("http://openweathermap.org/img/w/10d.png");
+
+        }else if(city.getDescription().equals("lluvia moderada")){
+            city.setIcon("http://openweathermap.org/img/w/09d.png");
+
+        }else if(city.getDescription().equals("lluvia de gran intensidad")){
             city.setIcon("http://openweathermap.org/img/w/09d.png");
         }
 
-
-
+        
         Glide.with(getContext()).load(city.getIcon()).into(weatherImage);
 
         // Retornem la View replena per a mostrarla

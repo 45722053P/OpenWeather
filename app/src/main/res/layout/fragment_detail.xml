@@ -231,12 +231,12 @@
         android:layout_marginLeft="16dp" />
 
     <ImageView
-        android:layout_width="140dp"
-        android:layout_height="142dp"
         app:srcCompat="@drawable/icono"
         tools:layout_editor_absoluteY="0dp"
         tools:layout_editor_absoluteX="0dp"
-        android:id="@+id/iconoday" />
+        android:id="@+id/iconoday"
+        android:layout_width="150dp"
+        android:layout_height="135dp" />
 
     <TextView
         android:text="temperatura"

@@ -10,12 +10,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 /**
  * A placeholder fragment containing a simple view.
  */
 public class DetailActivityFragment extends Fragment {
 
-    TextView titulo,id,name,lat,lon,pais,descripcion,temperatura,tempdia,tempmañana,tempnoche,tempmedianoche,tempmax,tempmin,speedWind,humedad,presion;
+    TextView id,name,lat,lon,pais,descripcion,temperatura,tempdia,tempmañana,tempnoche,tempmedianoche,tempmax,tempmin,speedWind,humedad,presion;
     ImageView iconoday;
     View viewDetails;
 
@@ -82,6 +84,32 @@ public class DetailActivityFragment extends Fragment {
         speedWind.setText("VELOCIDAD DEL VIENTO: " + ciudad.getSpeed());
         humedad.setText("HUMEDAD EN EL AMBIENTE: " + ciudad.getHumidity());
         presion.setText("PRESION ATMOSFERICA: " + ciudad.getPressure());
+
+        if(ciudad.getDescription().equals("cielo claro")){
+            ciudad.setIcon("http://openweathermap.org/img/w/01d.png");
+
+        }else if(ciudad.getDescription().equals("algo de nubes")){
+            ciudad.setIcon("http://openweathermap.org/img/w/02d.png");
+
+        }else if(ciudad.getDescription().equals("nubes dispersas")){
+            ciudad.setIcon("http://openweathermap.org/img/w/03d.png");
+
+        }else if(ciudad.getDescription().equals("nubes rotas")){
+            ciudad.setIcon("http://openweathermap.org/img/w/04d.png");
+
+        }else if(ciudad.getDescription().equals("lluvia ligera")){
+            ciudad.setIcon("http://openweathermap.org/img/w/10d.png");
+
+        }else if(ciudad.getDescription().equals("lluvia moderada")){
+            ciudad.setIcon("http://openweathermap.org/img/w/09d.png");
+
+        }else if(ciudad.getDescription().equals("lluvia de gran intensidad")){
+            ciudad.setIcon("http://openweathermap.org/img/w/09d.png");
+        }
+
+
+        Glide.with(getContext()).load(ciudad.getIcon()).into(iconoday);
+
     }
 
 }
