@@ -71,7 +71,7 @@ public class DetailActivityFragment extends Fragment {
         id.setText("ID CIUDAD: " + ciudad.getId());
         name.setText("NOMBRE: " + ciudad.getName());
         lat.setText("LATITUD: " + ciudad.getLat());
-        lon.setText("LONGITUD" + ciudad.getLon());
+        lon.setText("LONGITUD: " + ciudad.getLon());
         pais.setText("PAIS: " + ciudad.getCountry());
         descripcion.setText("ESTADO DEL CIELO: " + ciudad.getDescription());
         temperatura.setText("TEMPERATURAS: ");
