@@ -139,77 +139,39 @@ public class MainActivityFragment extends Fragment {
 
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
             String ciudad = preferences.getString("Ciudad", "");
-            String dias = preferences.getString("Dias Prediccion", "");
+            String dias = preferences.getString("Dias Prediccion","");
+//            int Lat = preferences.getInt("Latitud",0);
+//            int Long = preferences.getInt("Longitud",0);
 
             LlamadaWeather llamadaWeather = new LlamadaWeather();
 
             ArrayList<City> result = null;
 
 
-            if(dias.equals("")&&ciudad.equals("")){
+            if(dias.equals("") && ciudad.equals("")){
 
                 result = llamadaWeather.getCiudadesDefecto();
 
-            }else if(dias.equals("")){
+            }else if(dias.equals("1") || dias.equals("2") || dias.equals("3") || dias.equals("4") || dias.equals("5")){
 
                 result = llamadaWeather.getWeatherDays(ciudad,dias);
 
-
-            } else if(dias.equals("1")){
-
-                result = llamadaWeather.getWeatherDays(ciudad,dias);
-
-            }else if(dias.equals("2")){
-
-                result = llamadaWeather.getWeatherDays(ciudad,dias);
-
-            }else if(dias.equals("3")){
-
-                result = llamadaWeather.getWeatherDays(ciudad,dias);
-
-            }else if(dias.equals("4")){
-
-                result = llamadaWeather.getWeatherDays(ciudad,dias);
-
-            }else if(dias.equals("5")){
-
-                result = llamadaWeather.getWeatherDays(ciudad,dias);
-
-            }else if(dias.contains("6")){
-
-                result = llamadaWeather.getWeatherDays(ciudad,dias);
-                Snackbar.make(listWeather, "Dia de Prediccion incorrecto maximo 5 dias", Snackbar.LENGTH_LONG)
-                        .show();
-
-            }else if(dias.equals("7")){
-
-                result = llamadaWeather.getWeatherDays(ciudad,dias);
-                Snackbar.make(listWeather, "Dia de Prediccion incorrecto maximo 5 dias", Snackbar.LENGTH_LONG)
-                        .show();
-
-            }else if(dias.equals("8")){
-
-                result = llamadaWeather.getWeatherDays(ciudad,dias);
-                Snackbar.make(listWeather, "Dia de Prediccion incorrecto maximo 5 dias", Snackbar.LENGTH_LONG)
-                        .show();
-
-            }else if(dias.equals("9")){
-
-                result = llamadaWeather.getWeatherDays(ciudad,dias);
-                Snackbar.make(listWeather, "Dia de Prediccion incorrecto maximo 5 dias", Snackbar.LENGTH_LONG)
-                        .show();
-
-            }else if(dias.equals("10")){
+            //Pongo 12 pero seria mayor de 5.
+            } else if(dias.equals("6") || dias.equals("7") || dias.equals("8") || dias.equals("9") || dias.equals("10") || dias.equals("11") || dias.equals("12")){
 
                 result = llamadaWeather.getWeatherDays(ciudad,dias);
                 Snackbar.make(listWeather, "Dia de Prediccion incorrecto maximo 5 dias", Snackbar.LENGTH_LONG)
                         .show();
 
             }
+    // else if(Lat >= 1 && Long >= 1){
+    //                llamadaWeather.getCiudadesCircumferencia(Lat,Long);
+    //            }
 
             Log.d("DEBUUUUG",result.toString());
 
             return result;
+
         }
 
         @Override

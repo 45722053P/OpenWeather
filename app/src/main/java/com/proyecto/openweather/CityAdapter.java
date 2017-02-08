@@ -74,9 +74,17 @@ public class CityAdapter extends ArrayAdapter<City> {
 
         }else if(city.getDescription().equals("lluvia de gran intensidad")){
             city.setIcon("http://openweathermap.org/img/w/09d.png");
+
+        }else if(city.getDescription().equals("nevada ligera")){
+            city.setIcon("http://openweathermap.org/img/w/13d.png");
+
+        }else if(city.getDescription().equals("nieve")){
+            city.setIcon("http://openweathermap.org/img/w/13d.png");
         }
 
-        
+
+
+
         Glide.with(getContext()).load(city.getIcon()).into(weatherImage);
 
         // Retornem la View replena per a mostrarla

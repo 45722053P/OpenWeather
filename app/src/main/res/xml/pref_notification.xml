@@ -3,7 +3,7 @@
     <EditTextPreference
         android:capitalize="words"
         android:defaultValue="@string/Lat_defecto"
-        android:inputType="textCapWords"
+        android:inputType="numberDecimal"
         android:key="Latitud"
         android:maxLines="1"
         android:selectAllOnFocus="true"
@@ -14,7 +14,7 @@
     <EditTextPreference
         android:capitalize="words"
         android:defaultValue="@string/Long_defecto"
-        android:inputType="textCapWords"
+        android:inputType="numberDecimal"
         android:key="Longitud"
         android:maxLines="1"
         android:selectAllOnFocus="true"

@@ -47,7 +47,7 @@ public class LlamadaWeather {
                 .appendQueryParameter("q",ciudad)
                 .appendQueryParameter("lang", lang)
                 .appendQueryParameter("units",units)
-                .appendQueryParameter("cnt",dias)
+                .appendQueryParameter("cnt", dias)
                 .appendQueryParameter("appid",APIKEY)
                 .build();
         String url = builtUri.toString();
@@ -55,7 +55,20 @@ public class LlamadaWeather {
         return llama2(url);
 
     }
+    ArrayList<City> getCiudadesCircumferencia(int Lat , int Long) {
+        Uri builtUri = Uri.parse(BASE_URL)
+                .buildUpon()
+                .appendPath("find")
+                .appendQueryParameter("lat", String.valueOf(Lat))
+                .appendQueryParameter("lon", String.valueOf(Long))
+                .appendQueryParameter("lang", lang)
+                .appendQueryParameter("units",units)
+                .appendQueryParameter("appid",APIKEY)
+                .build();
+        String url = builtUri.toString();
 
+        return llama2(url);
+    }
 
 
     @Nullable
@@ -161,15 +174,14 @@ public class LlamadaWeather {
                    city.setId(data.getJSONObject("city").getInt("id"));
 
                     city.setName(data.getJSONObject("city").getString("name"));
-                    Log.d("LOOOONN",city.toString());
-                    Log.d("LAATT",data.toString());
-                    if(data.has("coord")){
-                        Log.d("LOOOONN",city.toString());
-                        Log.d("LAATT",data.toString());
-                        city.setLon(data.getJSONArray("coord").getJSONObject(0).getDouble("lon"));
+
+                    if(data.has("coord")) {
+
+                        city.setLon(data.getJSONObject("coord").getDouble("lon"));
                         city.setLat(data.getJSONObject("coord").getDouble("lat"));
 
                     }
+
                     city.setCountry(data.getJSONObject("city").getString("country"));
 
                 }
