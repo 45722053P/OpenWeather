@@ -140,15 +140,15 @@ public class MainActivityFragment extends Fragment {
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
             String ciudad = preferences.getString("Ciudad", "");
             String dias = preferences.getString("Dias Prediccion","");
-//            int Lat = preferences.getInt("Latitud",0);
-//            int Long = preferences.getInt("Longitud",0);
+            String Lat = preferences.getString("Latitud","");
+            String Long = preferences.getString("Longitud","");
 
             LlamadaWeather llamadaWeather = new LlamadaWeather();
 
             ArrayList<City> result = null;
 
 
-            if(dias.equals("") && ciudad.equals("")){
+            if(dias.equals("") && ciudad.equals("") && Lat.equals("") &&  Long.equals("")){
 
                 result = llamadaWeather.getCiudadesDefecto();
 
@@ -163,10 +163,11 @@ public class MainActivityFragment extends Fragment {
                 Snackbar.make(listWeather, "Dia de Prediccion incorrecto maximo 5 dias", Snackbar.LENGTH_LONG)
                         .show();
 
-            }
-    // else if(Lat >= 1 && Long >= 1){
-    //                llamadaWeather.getCiudadesCircumferencia(Lat,Long);
-    //            }
+            } else if(Lat.contains("0") || Lat.contains("1") || Lat.contains("2") || Lat.contains("3") || Lat.contains("4") || Lat.contains("5") || Lat.contains("6") || Lat.contains("7") || Lat.contains("8") || Lat.contains("9")
+                    && Long.contains("0") || Long.contains("1") || Long.contains("2") || Long.contains("3") || Long.contains("4") || Long.contains("5") || Long.contains("6") || Long.contains("7") || Long.contains("8") || Long.contains("9")
+                    && dias.equals("") && ciudad.equals("")){
+                          result = llamadaWeather.getCiudadesCircumferencia(Lat,Long);
+                        }
 
             Log.d("DEBUUUUG",result.toString());
 

@@ -74,8 +74,8 @@
     <string name="pref_header_notifications">Busqueda por Latitud y Longitud</string>
 
     <string name="Lat_Defecto_Name">Latitud</string>
-    <string name="Lat_defecto">41</string>
+    <string name="Lat_defecto">42</string>
     <string name="Long_Defecto_Name">Longitud</string>
-    <string name="Long_defecto">2.5</string>
+    <string name="Long_defecto">2</string>
 
 </resources>

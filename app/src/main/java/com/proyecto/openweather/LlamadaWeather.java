@@ -55,19 +55,19 @@ public class LlamadaWeather {
         return llama2(url);
 
     }
-    ArrayList<City> getCiudadesCircumferencia(int Lat , int Long) {
+    ArrayList<City> getCiudadesCircumferencia(String Lat , String Long) {
         Uri builtUri = Uri.parse(BASE_URL)
                 .buildUpon()
                 .appendPath("find")
-                .appendQueryParameter("lat", String.valueOf(Lat))
-                .appendQueryParameter("lon", String.valueOf(Long))
+                .appendQueryParameter("lat",Lat)
+                .appendQueryParameter("lon", Long)
                 .appendQueryParameter("lang", lang)
                 .appendQueryParameter("units",units)
                 .appendQueryParameter("appid",APIKEY)
                 .build();
         String url = builtUri.toString();
 
-        return llama2(url);
+        return llama(url);
     }
 
 
